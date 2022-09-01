@@ -11,12 +11,20 @@ function Popular() {
   }, []);
 
   const getPopular = async () => {
-    const api = await fetch(
-      `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`
-    );
-    const data = await api.json();
-    console.log(data);
-    setPopular(data.recipes);
+    const check = localStorage.getItem("popular");
+
+    if (check) {
+      setPopular(JSON.parse(check));
+    } else {
+      const api = await fetch(
+        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`
+      );
+      const data = await api.json();
+
+      localStorage.setItem("popular", JSON.stringify(data.recipes));
+      setPopular(data.recipes);
+      console.log(data);
+    }
   };
 
   return (
@@ -26,6 +34,7 @@ function Popular() {
         <Splide
           options={{
             perPage: 4,
+            gap: "2rem",
           }}
         >
           {popular.map((recipe) => {
@@ -54,6 +63,7 @@ const RecipeCard = styled.div`
   border-radius: 2rem;
   overflow: hidden;
   position: relative;
+  background-color: black;
 
   img {
     border-radius: 2rem;
@@ -61,6 +71,8 @@ const RecipeCard = styled.div`
     left 0;
     width: 100%;
     height: 100%;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0.4) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0.4) 100%);
   }
 
   p {
@@ -73,8 +85,8 @@ const RecipeCard = styled.div`
     width: 100%;
     text-align: center;
     font-weight: 600;
-    font-size: 1rem;
-    height: 40%;
+    font-size: 1.1rem;
+    height: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
