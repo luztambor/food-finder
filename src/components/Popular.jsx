@@ -35,8 +35,9 @@ function Popular() {
           options={{
             perPage: 4,
             breakpoints: {
-              1024: { perPage: 3 },
-              767: { perPage: 2 },
+              1200: { perPage: 3 },
+              900: { perPage: 2 },
+              600: { perPage: 1 },
             },
             gap: "2rem",
           }}
@@ -58,15 +59,16 @@ function Popular() {
 }
 
 const Wrapper = styled.div`
-  margin: 4rem 0;
+  margin: 4rem 2rem;
 `;
 
 const RecipeCard = styled.div`
-  min-height: 20rem;
+  min-height: 15rem;
   max-width: 28rem;
   border-radius: 2rem;
   overflow: hidden;
   position: relative;
+  background-size: contain;
   background-color: black;
 
   img {
@@ -90,7 +92,7 @@ const RecipeCard = styled.div`
     text-align: center;
     font-weight: 600;
     font-size: 1.1rem;
-    height: 30%;
+    height: 27%;
     display: flex;
     justify-content: center;
     align-items: center;
