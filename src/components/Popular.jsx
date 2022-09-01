@@ -34,6 +34,10 @@ function Popular() {
         <Splide
           options={{
             perPage: 4,
+            breakpoints: {
+              1024: { perPage: 3 },
+              767: { perPage: 2 },
+            },
             gap: "2rem",
           }}
         >
@@ -43,7 +47,6 @@ function Popular() {
                 <RecipeCard>
                   <p>{recipe.title}</p>
                   <img src={recipe.image} alt={recipe.title} />
-                  <Gradient />
                 </RecipeCard>
               </SplideSlide>
             );
@@ -60,6 +63,7 @@ const Wrapper = styled.div`
 
 const RecipeCard = styled.div`
   min-height: 20rem;
+  max-width: 28rem;
   border-radius: 2rem;
   overflow: hidden;
   position: relative;
@@ -91,14 +95,6 @@ const RecipeCard = styled.div`
     justify-content: center;
     align-items: center;
   }
-`;
-
-const Gradient = styled.div`
-  z-index: 9;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rbga(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
 `;
 
 export default Popular;
