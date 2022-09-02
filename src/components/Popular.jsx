@@ -17,7 +17,7 @@ function Popular() {
       setPopular(JSON.parse(check));
     } else {
       const api = await fetch(
-        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`
+        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12&tags=vegetarian`
       );
       const data = await api.json();
 
@@ -30,7 +30,7 @@ function Popular() {
   return (
     <div>
       <Wrapper>
-        <h3>Try Something New</h3>
+        <h3>Trending Dishes</h3>
         <Splide
           options={{
             perPage: 5,

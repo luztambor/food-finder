@@ -39,6 +39,7 @@ function Veggie() {
               600: { perPage: 1 },
             },
             gap: "2rem",
+            pagination: false,
           }}
         >
           {veggie.map((recipe) => {
