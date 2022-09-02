@@ -46,11 +46,11 @@ function Recipe() {
 
         {activeTab === "ingredients" && (
           <div>
-            <ul>
+            {/* <ul>
               {recipeInfo.extendedIngredients.map((ingredient) => {
                 return <li key={ingredient.id}>{ingredient.original}</li>;
               })}
-            </ul>
+            </ul> */}
           </div>
         )}
         {activeTab === "instructions" && (
@@ -70,7 +70,7 @@ const RecipeWrapper = styled.div`
   margin-bottom: 5rem;
   display: flex;
 
-  @media (max-width: 980px) {
+  @media (max-width: 1150px) {
     flex-direction: column;
     align-items: center;
   }
@@ -84,7 +84,7 @@ const RecipeWrapper = styled.div`
     width: 75%;
     margin-bottom: 1rem;
 
-    @media (max-width: 980px) {
+    @media (max-width: 1150px) {
       width: 100%;
     }
   }
@@ -99,7 +99,7 @@ const RecipeWrapper = styled.div`
     width: 75%;
     margin-bottom: 2.5rem;
 
-    @media (max-width: 980px) {
+    @media (max-width: 1150px) {
       font-size: 1.1rem;
       width: 100%;
     }
@@ -139,6 +139,7 @@ const Info = styled.div`
   flex-direction: column;
 
   div {
+    padding: 0 3rem;
     @media (max-width: 980px) {
       margin: 7%;
     }
