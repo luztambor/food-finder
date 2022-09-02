@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { RecipeCard, GridWrapper } from "../components/ResultCard";
+import { Link } from "react-router-dom";
 
 function SearchResult() {
   const [searchResult, setSearchResult] = useState([]);
@@ -24,10 +25,12 @@ function SearchResult() {
     <GridWrapper>
       {searchResult.map((item) => {
         return (
-          <RecipeCard key={item.id}>
-            <p>{item.title}</p>
-            <img src={item.image} alt={item.title} />
-          </RecipeCard>
+          <Link to={"/recipe/" + item.id}>
+            <RecipeCard key={item.id}>
+              <p>{item.title}</p>
+              <img src={item.image} alt={item.title} />
+            </RecipeCard>
+          </Link>
         );
       })}
     </GridWrapper>

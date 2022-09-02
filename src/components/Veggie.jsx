@@ -1,6 +1,7 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import { Wrapper, RecipeCard } from "./ResultCard.jsx";
+import { Wrapper, RecipeCard } from "./ResultCard";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Veggie() {
   const [veggie, setVeggie] = useState([]);
@@ -45,10 +46,12 @@ function Veggie() {
           {veggie.map((recipe) => {
             return (
               <SplideSlide>
-                <RecipeCard key={recipe.id}>
-                  <p>{recipe.title}</p>
-                  <img src={recipe.image} alt={recipe.title} />
-                </RecipeCard>
+                <Link to={"/recipe/" + recipe.id}>
+                  <RecipeCard key={recipe.id}>
+                    <p>{recipe.title}</p>
+                    <img src={recipe.image} alt={recipe.title} />
+                  </RecipeCard>
+                </Link>
               </SplideSlide>
             );
           })}
