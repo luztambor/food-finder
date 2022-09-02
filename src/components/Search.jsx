@@ -5,22 +5,17 @@ import { BsSearch } from "react-icons/bs";
 function Search() {
   return (
     <StyledForm>
-      <div>
-        <BsSearch />
-        <input type="text" />
-      </div>
+      <BsSearch />
+      <input type="text" />
     </StyledForm>
   );
 }
 
 const StyledForm = styled.form`
-  margin: 0rem 20rem;
+  padding: 1rem 0 0 0;
+  margin: auto;
   position: relative;
-
-  div {
-    width: 100%;
-    position: relative;
-  }
+  width: 80%;
 
   input {
     border: 1px black solid;
@@ -38,7 +33,7 @@ const StyledForm = styled.form`
     position: absolute;
     top: 50%;
     left: 0%;
-    transform: translate(100%, -50%);
+    transform: translate(100%);
   }
 `;
 

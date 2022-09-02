@@ -27,7 +27,9 @@ function Category() {
 const List = styled.div`
   display: flex;
   justify-content: center;
-  margin: 2rem 0rem;
+  align-items: center;
+  margin: 2rem 1rem;
+  width: 100%;
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -36,15 +38,30 @@ const StyledNavLink = styled(NavLink)`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  margin-right: 1.75rem;
+  margin-right: 1.5rem;
   text-decoration: none;
   border: 1px black solid;
   background: white;
   //   background: linear-gradient(35deg, #494949, #313131);
-  width: 6rem;
-  height: 6rem;
+  min-width: 6rem;
+  min-height: 6rem;
   cursor: pointer;
   transform: scale(0.8);
+
+  @media only screen and (min-width: 600px) {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  @media only screen and (min-width: 900px) {
+    height: 4rem;
+    width: 4rem;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    height: 6rem;
+    width: 6rem;
+  }
 
   h4 {
     color: black;
