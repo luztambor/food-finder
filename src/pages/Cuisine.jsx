@@ -15,7 +15,7 @@ function Cuisine() {
 
   const getCuisine = async (name) => {
     const data = await fetch(
-      `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=21&tags=${name}`
+      `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=6&tags=${name}`
     );
     const recipes = await data.json();
     // console.log(`results: ${JSON.stringify(recipes.recipes)}`);
