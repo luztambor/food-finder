@@ -16,7 +16,7 @@ function Veggie() {
       setVeggie(JSON.parse(check));
     } else {
       const api = await fetch(
-        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12&diet=vegetarian`
+        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12&tags=vegetarian`
       );
       const data = await api.json();
 
@@ -45,7 +45,7 @@ function Veggie() {
           {veggie.map((recipe) => {
             return (
               <SplideSlide>
-                <RecipeCard>
+                <RecipeCard key={recipe.id}>
                   <p>{recipe.title}</p>
                   <img src={recipe.image} alt={recipe.title} />
                 </RecipeCard>
