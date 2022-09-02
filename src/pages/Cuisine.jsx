@@ -9,18 +9,17 @@ function Cuisine() {
   let params = useParams();
 
   useEffect(() => {
-    console.log(`starting useEffect with ${params.type}`);
+    // console.log(`starting useEffect with ${params.type}`);
     getCuisine(params.type);
   }, [params.type]);
 
   const getCuisine = async (name) => {
     const data = await fetch(
-      `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12&tags=${name}`
+      `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=21&tags=${name}`
     );
     const recipes = await data.json();
-    // console.log(`results: ${JSON.stringify(recipes)}`);
-    setCuisine(data.recipes);
-    console.log(`here's cuisine: ${cuisine}`);
+    // console.log(`results: ${JSON.stringify(recipes.recipes)}`);
+    setCuisine(recipes.recipes);
   };
 
   return (
