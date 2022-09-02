@@ -28,7 +28,7 @@ const List = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2rem 1rem;
+  margin: 2rem 0;
   width: 100%;
 `;
 
@@ -38,7 +38,7 @@ const StyledNavLink = styled(NavLink)`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  margin-right: 1.5rem;
+  margin: 0 1%;
   text-decoration: none;
   border: 1px black solid;
   background: white;
