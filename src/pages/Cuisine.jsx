@@ -26,10 +26,12 @@ function Cuisine() {
     <GridWrapper>
       {cuisine.map((item) => {
         return (
-          <RecipeCard key={item.id}>
-            <p>{item.title}</p>
-            <img src={item.image} alt={item.title} />
-          </RecipeCard>
+          <Link to={"/search/" + item.id}>
+            <RecipeCard key={item.id}>
+              <p>{item.title}</p>
+              <img src={item.image} alt={item.title} />
+            </RecipeCard>
+          </Link>
         );
       })}
     </GridWrapper>
