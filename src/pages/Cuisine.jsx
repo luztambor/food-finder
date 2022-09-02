@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { RecipeCard } from "../components/ResultCard";
+import { RecipeCard, GridWrapper } from "../components/ResultCard";
 
 function Cuisine() {
   const [cuisine, setCuisine] = useState([]);
@@ -23,7 +23,7 @@ function Cuisine() {
   };
 
   return (
-    <Grid>
+    <GridWrapper>
       {cuisine.map((item) => {
         return (
           <RecipeCard key={item.id}>
@@ -32,16 +32,8 @@ function Cuisine() {
           </RecipeCard>
         );
       })}
-    </Grid>
+    </GridWrapper>
   );
 }
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  grid-gap: 2rem;
-  align-content: center;
-  justify-content: center;
-`;
 
 export default Cuisine;

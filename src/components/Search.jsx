@@ -1,12 +1,25 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 function Search() {
+  const [input, setInput] = useState("");
+  const navigate = useNavigate();
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    navigate("/search/" + input);
+  };
+
   return (
-    <StyledForm>
+    <StyledForm onSubmit={submitHandler}>
       <BsSearch />
-      <input type="text" />
+      <input
+        onChange={(e) => setInput(e.target.value)}
+        type="text"
+        value={input}
+      />
     </StyledForm>
   );
 }
