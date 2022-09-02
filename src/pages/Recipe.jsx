@@ -14,7 +14,7 @@ function Recipe() {
     const info = await data.json();
     // console.log(`results: ${JSON.stringify(info.extendedIngredients)})}`);
     setRecipeInfo(info);
-    console.log(recipeInfo.extendedIngredients);
+    // console.log(recipeInfo.extendedIngredients);
   };
 
   useEffect(() => {
@@ -45,11 +45,13 @@ function Recipe() {
         </ButtonWrapper>
 
         {activeTab === "ingredients" && (
-          <ul>
-            {/* {recipeInfo.extendedIngredients.map((ingredient) => {
-              return <li key={ingredient.id}>{ingredient.original}</li>;
-            })} */}
-          </ul>
+          <div>
+            <ul>
+              {recipeInfo.extendedIngredients.map((ingredient) => {
+                return <li key={ingredient.id}>{ingredient.original}</li>;
+              })}
+            </ul>
+          </div>
         )}
         {activeTab === "instructions" && (
           <div>
@@ -117,6 +119,8 @@ const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
   margin-bottom: 1.5rem;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Button = styled.button`
@@ -133,6 +137,12 @@ const Button = styled.button`
 const Info = styled.div`
   display: flex;
   flex-direction: column;
+
+  div {
+    @media (max-width: 980px) {
+      margin: 7%;
+    }
+  }
 `;
 
 export default Recipe;
