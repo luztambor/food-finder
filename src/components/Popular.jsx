@@ -41,6 +41,7 @@ function Popular() {
               900: { perPage: 2 },
               600: { perPage: 1 },
             },
+            pagination: false,
             gap: "2rem",
           }}
         >
